@@ -15,13 +15,19 @@
 
 ## Variables
 
-## Conditionals and Operators
+- primitive data types
+  - boolean
+  - 
+  - 
 
-- 
+## Strings
+
+## Conditionals and Operators
 
 ## Switch and Ternary
 
-## Strings
+- 
+
 
 ## Methods
 
