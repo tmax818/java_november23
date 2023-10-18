@@ -1,9 +1,13 @@
 # code for day 1: fundamentals
 
-# Why Java?
+- [] Why Java? and 'Hello, World'
 
-## WORA
+- WORA[^1]
+- [hello.c](./HelloWorld/hello.c)
+- [Hello.java](./HelloWorld/Hello.java)
 
-- [hello.c](./hello.c)
-- [Hello.java](./Hello.java)
+## data types
 
+- primitive and reference
+
+[^1]: Write once, run anywhere.
