@@ -1,0 +1,395 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Java September</title>
+
+		<meta name="description" content="September Java - Coding Dojo - Online">
+		<meta name="author" content="Tyler Maxwell">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link rel="stylesheet" href="../dist/reset.css">
+		<link rel="stylesheet" href="../dist/reveal.css">
+		<link rel="stylesheet" href="../dist/theme/black.css" id="theme">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="../plugin/highlight/monokai.css">
+		<style>
+			.container{
+				display: flex;
+			}
+			.col{
+				flex: 2;
+			}
+			</style>
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<a href="#">
+					  <img
+						src="../images/coding_dojo_logo_white.png"
+						alt="cd logo"
+						style="
+						  height: 200px;
+						  margin: 0 auto 4rem auto;
+						  background: transparent;
+						"
+						class="demo-logo"
+					  />
+					</a>
+				</section>
+				
+				  <section>
+					<img width="500" src="../images/Java-Logo.webp" alt="java logo">
+				  </section>
+
+				  <section>
+					<h2>Day 2</h2>
+					<p>
+						Java OOP
+					</p>
+				</section>
+				
+				
+				<section data-markdown="assignments.md"
+					data-separator="^---"
+					data-separator-vertical="^--"
+					data-separator-notes="^note:"
+					data-charset="iso-8859-15">
+				</section>
+
+				<section>
+					<section>
+						<h2>Objects and Classes</h2>
+					</section>
+					
+					<section data-background-video="https://tesla-cdn.thron.com/delivery/public/video/tesla/02bfc300-50c2-4500-abc1-d251f5f42dc2/bvlatuR/WEBHD/manufacturing-hero-desktop">
+						<h1>This is the class</h1>
+					  </section>
+					  <section data-background-image="../images/dude_in_tesla.jpg">
+						<h1>This is an instance of the class</h1>
+					  </section>
+					<section>
+						<h2>Objects and Classes</h2>
+
+						<!-- <div  class="r-hstack"> -->
+							<pre data-id="code">
+								<div  class="r-hstack">
+									<code  width="00"class="hljs" data-trim data-line-numbers="2">
+										// Tesla.java
+										class Tesla {
+											String owner = "Tyler";
+											
+										}	
+									</code>
+									<code width="400" class="hljs" data-trim data-line-numbers="3">
+										// Main.java
+										class Main {
+											Tesla myTesla = new Tesla();
+											System.out.println(myTesla.owner);
+										}	
+									</code>
+								</div>
+							</pre>
+			
+							<pre data-id="code"></pre>
+						<!-- </div> -->
+					</section>
+						
+				</section>
+
+			
+				<section>
+					<section>
+						<h3>Member Variables(Instance Attributes)</h3>
+					</section>
+					<section data-auto-animate>
+						<h2 data-id="code-title">Tesla Class</h2>
+						<pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers>
+							// Tesla.java
+							class Tesla {
+							}
+						</code></pre>
+					</section>
+					<section data-auto-animate>
+						<h2 data-id="code-title">Tesla Class</h2>
+						<pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers>
+							// Tesla.java
+							class Tesla {
+								String owner = "Tyler";
+							}
+						</code></pre>
+					</section>
+					<section data-auto-animate>
+						<h2 data-id="code-title">Tesla Class</h2>
+						<pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers>
+							// Tesla.java
+							class Tesla {
+								String owner = "Tyler";
+								String color = "red";
+								int Doors = 4;
+							}
+						</code></pre>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h3>Getters, Setters & Access Modifiers</h3>
+					</section>
+					<section data-auto-animate>
+						<h2 data-id="code-title">Tesla Class</h2>
+						<pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers>
+							// Tesla.java
+							class Tesla {
+								private String owner = "Tyler";
+								private String color = "red";
+								private int Doors = 4;
+							}
+						</code></pre>
+					</section>
+					<section data-auto-animate>
+						<h2 data-id="code-title">Tesla Class</h2>
+						<pre data-id="code-animation"><code  class="hljs" data-trim data-line-numbers>
+							// Tesla.java
+							class Tesla {
+								private String owner = "Tyler";
+								private String color = "red";
+								private int Doors = 4;
+
+								// getters and setters
+								public String getOwner() {
+									return owner;
+								}
+							
+								public void setOwner(String owner) {
+									this.owner = owner;
+								}
+							
+								public String getColor() {
+									return color;
+								}
+							
+								public void setColor(String color) {
+									this.color = color;
+								}
+							
+								public int getDoors() {
+									return Doors;
+								}
+							
+								public void setDoors(int doors) {
+									Doors = doors;
+								}
+							}
+						</code></pre>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h3>Constructors and Overloading</h3>
+					</section>
+					<section>
+						<p>Overloading a method is just defining new method signatures for the same method name.</p>
+					</section>
+					<section data-auto-animate>
+						<h2 data-id="code-title">Tesla Class</h2>
+						<pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers>
+							// Tesla.java
+							class Tesla {
+								String owner = "Tyler";
+								String color = "red";
+								int Doors = 4;
+							}
+						</code></pre>
+					</section>
+					<section data-auto-animate>
+						<div  class="r-hstack">
+							<pre data-id="code"><code  width="400"class="hljs" data-trim>
+							// Tesla.java
+							class Tesla {
+								String owner = "Tyler";
+								String color = "red";
+								int Doors = 4;
+							}	
+							</code></pre>
+			
+							<pre data-id="code"><code width="400" class="hljs" data-trim>
+								// Main.java
+								class Main {
+									Tesla myTesla = new Tesla();
+									System.out.println(myTesla.owner);
+								}	
+							</code></pre>
+						</div>
+
+						</section>
+						<section data-auto-animate>
+							<h2 data-id="code-title">Tesla Class</h2>
+							<pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers>
+								// Tesla.java
+								class Tesla {
+									String owner = "Tyler";
+									String color = "red";
+									int Doors = 4;
+
+									Tesla(){}
+
+									Tesla(String owner){
+										this.owner = owner;
+									}
+								}
+							</code></pre>
+						</section>
+						<section data-auto-animate>
+							<h2 data-id="code-title">Tesla Class</h2>
+							<pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers>
+								// Tesla.java
+								class Tesla {
+									String owner = "Tyler";
+									String color = "red";
+									int Doors = 4;
+
+									Tesla(){}
+
+									Tesla(String owner){
+										this.owner = owner;
+									}
+
+									Tesla(String owner, String, color){
+										this.owner = owner;
+										this.color = color;
+									}
+								}
+							</code></pre>
+						</section>
+				</section>
+
+				<section>
+					<section>
+						<h3>
+							<code>this</code>
+							<p class="fragment">In Java, the <code>this</code> keyword refers to the current object within the context of an instance method or constructor.</p>
+						</h3>
+					</section>
+					<section data-auto-animate>
+						<h2 data-id="code-title">Person Class</h2>
+						<pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers>
+							class Person {
+								private int age;
+								private String name;
+								public Person(int ageParam, String nameParam) {
+									this.age = ageParam;
+									this.name = nameParam;
+								}
+							}
+						</code></pre>
+					</section>
+					<section data-auto-animate>
+						<h2 data-id="code-title">Person Class</h2>
+						<pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers>
+							class Person {
+								private int age;
+								private String name;
+								public Person(int ageParam, String nameParam) {
+									age = ageParam;
+									name = nameParam;
+								}
+							}
+						</code></pre>
+					</section>
+					<section data-auto-animate>
+						<h2 data-id="code-title">Person Class</h2>
+						<pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers>
+							class Person {
+								private int age;
+								private String name;
+								public Person(int age, String name) {
+									this.age = age;
+									this.name = name;
+								}
+							}
+						</code></pre>
+					</section>
+				</section>
+			</section>
+
+			<section data-markdown="methods.md"
+			data-separator="^---"
+			data-separator-vertical="^--"
+			data-separator-notes="^note:"
+			data-charset="iso-8859-15">
+		</section>
+
+				<section>
+					<section>							
+							<code>static</code>
+						</section>
+						<section data-auto-animate>
+							<h2 data-id="code-title">Tesla Class</h2>
+							<pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers>
+								// Tesla.java
+								class Tesla {
+									private String owner = "Tyler";
+									private String color = "red";
+									private int Doors = 4;
+								}
+							</code></pre>
+						</section>
+						<section data-auto-animate>
+							<h2 data-id="code-title">Tesla Class with <code>static</code> attributes</h2>
+							<pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers>
+								// Tesla.java
+								class Tesla {
+									private String owner = "Tyler";
+									private String color = "red";
+									private int Doors = 4;
+									private static String CEO = "Elon Musk";
+								}
+							</code></pre>
+						</section>
+
+				</section>
+			</div>
+
+		</div>
+
+		<script src="../dist/reveal.js"></script>
+		<script src="../plugin/zoom/zoom.js"></script>
+		<script src="../plugin/notes/notes.js"></script>
+		<script src="../plugin/search/search.js"></script>
+		<script src="../plugin/markdown/markdown.js"></script>
+		<script src="../plugin/highlight/highlight.js"></script>
+		<script>
+
+			// Also available as an ES module, see:
+			// https://revealjs.com/initialization/
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				center: true,
+				hash: true,
+				width: 1200,
+				height: 600,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight ]
+			});
+
+		</script>
+
+	</body>
+</html>
