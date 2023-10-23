@@ -1,6 +1,13 @@
 # code for day 1: fundamentals
 
-- [] Why Java? and 'Hello, World'
+- [ ] 10_000 foot view
+  - cal
+  - ide
+
+- [ ] Java installation
+  - [sdkman](https://sdkman.io/)
+
+- [ ] Why Java? and 'Hello, World'
 
 - WORA[^1]
 - [hello.c](./HelloWorld/hello.c)
@@ -27,6 +34,15 @@
     - anything that is not primitive...
     - each primitive has a wrapper class that gives primitives OOP functionality
     - [DataTypes](./DataTypes/Main.java)
+
+- [ ] conditionals/operators
+  - [GuessingGame](./GuessingGame/README.md)
+
+- [ ] Strings
+
+- [ ] Methods
+  - what's the diff function/method?
+  - return type
 
 
 
