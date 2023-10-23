@@ -6,9 +6,9 @@ public class Basic13 {
 
 // TODO: print even integers from 0 to 100
 
-// TODO: given an array, find its largest element
+// TODO: given an array of integers, find its largest element
 
-// TODO: create an array with all odd inntegers between 1 and 100(inclusive)
+// TODO: create an array with all odd integers between 1 and 100(inclusive)
 
 // TODO: replace any negative array values with "dojo"
 
