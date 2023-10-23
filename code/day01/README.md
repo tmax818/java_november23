@@ -36,15 +36,19 @@
     - [DataTypes](./DataTypes/Main.java)
 
 - [ ] conditionals/operators
-  - [GuessingGame](./GuessingGame/README.md)
 
 - [ ] Strings
 
 - [ ] Methods
   - what's the diff function/method?
   - return type
+  - [CoffeeShop](./CoffeeShop/Main.java)
 
+- [ ] arrays/`ArrayList`s
+  - [Lists.java](./Lists/Lists.java)
 
+- [ ] loops
+  - [GuessingGame](./GuessingGame/README.md)
 
 -----
 
