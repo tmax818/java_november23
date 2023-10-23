@@ -56,15 +56,3 @@ class Stack {
     size() {}
   }
   
-  class StackNode {
-    constructor(data) {
-      this.data = data;
-      this.next = null;
-    }
-  }
-  
-  class LinkedListStack {
-    constructor() {
-      this.head = null;
-    }
-  }
