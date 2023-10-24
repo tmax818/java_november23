@@ -1,19 +1,26 @@
 package OOP.tesla;
 
+import java.util.ArrayList;
+
 public class Tesla {
 
     private String color;
     private String model;
-    private int year;
+    private  int year;
     private double odometer;
     private double price;
+    private static final String CEO = "Elon Musk";
+    private static final String HQ = "Freemont";
+    private static ArrayList<Tesla> allTeslas = new ArrayList<>();
 
 
     public Tesla() {
+        Tesla.allTeslas.add(this);
     }
 
 
     public Tesla(String color, String model, int year, double odometer, double price) {
+        this();
         this.color = color;
         this.model = model;
         this.year = year;
@@ -22,8 +29,13 @@ public class Tesla {
     }
 
     public void drive(){
-        System.out.printf("I am driving %d %s my tesla", this.year, this.color);
+        System.out.printf("I am driving my %d %s tesla\n", this.year, this.color);
     }
+
+    public void drive(double miles){
+        this.odometer += miles;
+        System.out.printf("I have driven my %s tesla %f miles", this.color, miles);   
+ }
 
 
 
@@ -65,6 +77,14 @@ public class Tesla {
 
     public void setPrice(double price) {
         this.price = price;
+    }
+
+    public static String getCEO(){
+        return Tesla.CEO;
+    }
+
+    public static void getTeslaList(){
+        System.out.println(allTeslas);
     }
 
 
