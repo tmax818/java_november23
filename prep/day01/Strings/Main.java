@@ -1,5 +1,8 @@
 package prep.day01.Strings;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class Main {
     public static void main(String[] args) {
         
@@ -16,6 +19,20 @@ public class Main {
         // for(int i = 0; i < 300; ++i){
         //     System.out.printf("%d = %c and binary is %s\n",i, i, Integer.toBinaryString(i));
         // }
+
+        ArrayList<Character> letters = new ArrayList<>();
+        char[] oletters = new char[27];
+        int j = 0;
+        for(int i = 97; i < 123; i++){
+            char ch = (char)i;
+            System.out.println(ch);
+            oletters[j] = ch;
+            j++;
+
+        }
+
+        System.out.println(Arrays.toString(oletters));
+
 
     }
 }
