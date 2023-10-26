@@ -1,10 +1,27 @@
 package co.tylermaxwell;
 
-public class Animal {
+public abstract class Animal {
 
     
     private double bodyTemp;
     private int limbs;
+    private int energyLevel;
+
+
+    public Animal() {
+    }
+
+    public Animal(int energyLevel) {
+    }
+
+
+    public Animal(double bodyTemp, int limbs, int energyLevel) {
+        this.bodyTemp = bodyTemp;
+        this.limbs = limbs;
+        this.energyLevel = energyLevel;
+    }
+
+
 
     public void move(){
         System.out.println("take steps");
@@ -27,6 +44,17 @@ public class Animal {
     public void setLimbs(int limbs) {
         this.limbs = limbs;
     }
+
+
+    public int getEnergyLevel() {
+        return this.energyLevel;
+    }
+
+    public void setEnergyLevel(int energyLevel) {
+        this.energyLevel = energyLevel;
+    }
+
+
 
     
 }
