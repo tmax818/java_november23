@@ -96,3 +96,8 @@ class Queue {
    */
   compareQueues(q2) {}
 }
+
+const qu1 = new Queue()
+const qu2 = new Queue()
+
+qu1.compareQueues(qu2)
