@@ -94,26 +94,5 @@ class Queue {
    * @returns {boolean} Whether all the items of the two queues are equal and
    *    in the same order.
    */
-  compareQueues(q2) {
-    if (this.size() !== q2.size()) {
-      return false;
-    }
-    let count = 0;
-    let isEqual = true;
-    const len = this.size();
-
-    while (count < len) {
-      const dequeued1 = this.dequeue();
-      const dequeued2 = q2.dequeue();
-
-      if (dequeued1 !== dequeued2) {
-        isEqual = false;
-      }
-
-      this.enqueue(dequeued1);
-      q2.enqueue(dequeued2);
-      count++;
-    }
-    return isEqual;
-  }
+  compareQueues(q2) {}
 }
