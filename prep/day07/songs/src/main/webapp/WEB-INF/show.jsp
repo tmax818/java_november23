@@ -18,11 +18,8 @@
     <script type="text/javascript" src="/js/app.js"></script><!-- change to match your file/naming structure -->
 </head>
 <body>
-   <h1>You did it, Tyler!!!</h1>
-
-   <p>name: <c:out value="${survey.name}"></c:out></p>
-   <p>language: <c:out value="${survey.language}"></c:out></p>
-   <p>location: <c:out value="${survey.location}"></c:out></p>
+   <p>title: <c:out value="${song.title}"></c:out></p>
+   <p>artist: <c:out value="${song.artist}"></c:out></p>
 </body>
 </html>
 

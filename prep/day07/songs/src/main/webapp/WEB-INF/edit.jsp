@@ -18,11 +18,14 @@
     <script type="text/javascript" src="/js/app.js"></script><!-- change to match your file/naming structure -->
 </head>
 <body>
-   <h1>You did it, Tyler!!!</h1>
+    <form action="/songs/${song.id}" method="POST">
+        <input type="hidden" name="_method" value="put">
+        title: <input type="text" name="title" value="${song.title}">
+        artist: <input type="text" name="artist" value="${song.artist}">
 
-   <p>name: <c:out value="${survey.name}"></c:out></p>
-   <p>language: <c:out value="${survey.language}"></c:out></p>
-   <p>location: <c:out value="${survey.location}"></c:out></p>
+        <input type="submit" value="edit song">
+
+    </form>
 </body>
 </html>
 

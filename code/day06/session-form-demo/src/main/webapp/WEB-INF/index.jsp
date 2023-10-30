@@ -28,8 +28,20 @@
 
         <form action="/process" method="POST">
             <label for="name">Name</label>
-            <input type="text" name="name">
-
+            <input type="text" name="name"  placeholder="type your name">
+            <br>
+            <label for="language">
+                <select name="language" id="language">
+                    <option value="Java">Java</option>
+                    <option value="Ruby">Ruby</option>
+                    <option value="C++">C++</option>
+                    <option value="C">C</option>
+                </select>
+            </label>
+            <br>
+            <label for="location">Location</label>
+            <input type="text" name="location">
+            
             <input type="submit" value="submit">
             
         </form>
