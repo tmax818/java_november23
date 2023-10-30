@@ -6,6 +6,7 @@ import java.util.Arrays;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import co.tylermaxwell.hopperreceipt.models.Item;
 
@@ -29,5 +30,16 @@ public class HomeController {
     public String index(Model model){
         model.addAttribute("items", items);
         return "index.jsp";
+    }
+
+    @GetMapping("/items/new")
+    public String create(){
+        return "new.jsp";
+    }
+
+    @PostMapping("/items")
+    public String createItem(Item item){
+        System.out.println(item);
+        return "redirect:/";
     }
 }
