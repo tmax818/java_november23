@@ -18,41 +18,17 @@
     <script type="text/javascript" src="/js/app.js"></script><!-- change to match your file/naming structure -->
 </head>
 <body>
-   ${songs}
+    ${song}
 
-   <table class="table">
-    <thead>
-        <tr>
-            <th>id</th>
-            <th>Artist</th>
-            <th>Title</th>
-            <th>actions</th>
-        </tr>
-    </thead>
-    <tbody>
-        <c:forEach var="song" items="${songs}">
-            <tr>
-                <td><c:out value="${song.id}"></c:out></td>
-                <td><c:out value="${song.artist}"></c:out></td>
-                <td><c:out value="${song.title}"></c:out></td>
-                <td>
-                    <a href="/songs/${song.id}">show</a>
-                    <a href="/songs/edit/${song.id}">edit</a>
-                </td>
-            </tr>
-        </c:forEach>
-    </tbody>
-   </table>
+   <h2>edit a song to the list</h2>
 
-   <h2>Add a song to the list</h2>
+   <form action="/songs/${song.id}" method="POST">
+        <input type="hidden" name="_method" value="put">
+        title: <input type="text" name="title" value="${song.title}">
+        artist: <input type="text" name="artist" value="${song.artist}">
 
-   <form action="/songs" method="POST">
-        title: <input type="text" name="title">
-        artist: <input type="text" name="artist">
-
-        <input type="submit" value="add song">
+        <input type="submit" value="edit song">
 
    </form>
 </body>
 </html>
-

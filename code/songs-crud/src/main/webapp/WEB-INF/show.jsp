@@ -26,33 +26,20 @@
             <th>id</th>
             <th>Artist</th>
             <th>Title</th>
-            <th>actions</th>
+        
         </tr>
     </thead>
     <tbody>
-        <c:forEach var="song" items="${songs}">
+    
             <tr>
                 <td><c:out value="${song.id}"></c:out></td>
                 <td><c:out value="${song.artist}"></c:out></td>
                 <td><c:out value="${song.title}"></c:out></td>
-                <td>
-                    <a href="/songs/${song.id}">show</a>
-                    <a href="/songs/edit/${song.id}">edit</a>
-                </td>
+        
             </tr>
-        </c:forEach>
     </tbody>
    </table>
 
-   <h2>Add a song to the list</h2>
-
-   <form action="/songs" method="POST">
-        title: <input type="text" name="title">
-        artist: <input type="text" name="artist">
-
-        <input type="submit" value="add song">
-
-   </form>
+   
 </body>
 </html>
-

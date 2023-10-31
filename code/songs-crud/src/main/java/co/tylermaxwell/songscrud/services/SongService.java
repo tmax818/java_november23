@@ -1,6 +1,7 @@
 package co.tylermaxwell.songscrud.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,8 +26,17 @@ public class SongService {
         return songRepository.findAll();
     }
 
+    public void addSong(Song song) {
+        songRepository.save(song);
+    }
 
+    public Song getOneSong(Long id) {
+        Optional<Song> optionalSong = songRepository.findById(id);
+        return optionalSong.orElse(null);
+    }
 
-    
+    public void updateSong(Song song) {
+        songRepository.save(song);
+    }
 
 }
