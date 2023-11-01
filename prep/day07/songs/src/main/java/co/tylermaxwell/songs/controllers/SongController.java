@@ -5,13 +5,16 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 
 import co.tylermaxwell.songs.models.Song;
 import co.tylermaxwell.songs.services.SongService;
+import jakarta.validation.Valid;
 
 
 
@@ -24,15 +27,22 @@ public class SongController {
     //! CREATE and READ ALL
     
     @GetMapping("/")
-    public String index(Song song, Model model){
+    public String index(@ModelAttribute Song song, Model model){
         List<Song> songs = songService.getAllSongs();
-        System.out.println(songs);
         model.addAttribute("songs", songs);
+        System.out.println(songs);
         return "index";
     }
-
+    
     @PostMapping(value="/songs")
-    public String addSong(Song song){
+    public String addSong(@Valid Song song, BindingResult result, Model model){
+        System.out.println(result.hasErrors());
+        if(result.hasErrors()){
+            List<Song> songs = songService.getAllSongs();
+            model.addAttribute("songs", songs);
+            model.addAttribute("result", result);
+            return "index";
+        }
         songService.addSong(song);
         return "redirect:/";
     }

@@ -18,6 +18,8 @@
     <script type="text/javascript" src="/js/app.js"></script><!-- change to match your file/naming structure -->
 </head>
 <body>
+    ${songs}
+    ${result}
 
     <table class="table">
         <thead>
@@ -52,6 +54,32 @@
         <input type="submit" value="add song">
 
     </form>
+
+    <br>
+    <br>
+    <br>
+    <h3>New and improved form</h3>
+
+    <form:form action="/songs" method="POST" modelAttribute="song">
+        <p>
+            <form:label path="title">Title</form:label>
+            <form:input path = "title" />
+            <form:errors path = "title" />
+        </p>
+        <p>
+            <form:label path="artist">artist</form:label>
+            <form:input path = "artist" />
+            <form:errors path = "artist" />
+        </p>
+        <p>
+            <form:label path="rating">rating</form:label>
+            <form:input path = "rating" />
+            <form:errors path = "rating" />
+        </p>
+
+        <input type="submit" value="add song">
+    </form:form>
+
    
 </body>
 </html>

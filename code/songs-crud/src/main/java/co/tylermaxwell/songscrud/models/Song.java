@@ -18,6 +18,7 @@ public class Song {
 
 
 
+
     public Song() {
     }
 
@@ -47,14 +48,10 @@ public class Song {
     }
 
 
-    @Override
-    public String toString() {
-        return "{" +
-            " id='" + getId() + "'" +
-            ", title='" + getTitle() + "'" +
-            ", artist='" + getArtist() + "'" +
-            "}";
-    }
+
+
+
+
 
 
 

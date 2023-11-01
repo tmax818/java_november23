@@ -39,4 +39,8 @@ public class SongService {
         songRepository.save(song);
     }
 
+    public Song createSong(Song song) {
+        return songRepository.save(song);
+    }
+
 }
