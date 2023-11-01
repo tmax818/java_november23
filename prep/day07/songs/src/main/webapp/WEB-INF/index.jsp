@@ -39,6 +39,11 @@
                     <td>
                         <a href="/songs/${song.id}">show</a>
                         <a href="/songs/edit/${song.id}">edit</a>
+                        <form action="/songs/${song.id}" method="post">
+                            <input type="hidden" name="_method" value="delete">
+                            <input type="submit" value="Delete">
+                        </form>
+                        
                     </td>
                 </tr>
             </c:forEach>
