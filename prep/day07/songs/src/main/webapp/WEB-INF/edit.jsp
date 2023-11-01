@@ -22,10 +22,33 @@
         <input type="hidden" name="_method" value="put">
         title: <input type="text" name="title" value="${song.title}">
         artist: <input type="text" name="artist" value="${song.artist}">
-
+        
         <input type="submit" value="edit song">
-
     </form>
+    
+    <br>
+    <br>
+    
+    <h3>new form</h3>
+    song: ${song}
+    <br>
+    esong: ${esong}
+    <form:form action="/songs/${song.id}" method="POST" modelAttribute="song">
+        <input type="hidden" name="_method" value="put">
+    <p>
+        <form:label path="title">title</form:label>
+        <form:input path="title"/>
+        <form:errors path="title"/>
+    </p>
+    <p>
+        <form:label path="artist">artist</form:label>
+        <form:input path="artist"/>
+        <form:errors path="artist"/>
+    </p>
+
+    <input type="submit" value="edit song">
+
+    </form:form>
 </body>
 </html>
 
