@@ -20,36 +20,6 @@
 <body>
    ${songs}
 
-   <table class="table">
-    <thead>
-        <tr>
-            <th>id</th>
-            <th>Artist</th>
-            <th>Title</th>
-            <th>actions</th>
-        </tr>
-    </thead>
-    <tbody>
-        <c:forEach var="song" items="${songs}">
-            <tr>
-                <td><c:out value="${song.id}"></c:out></td>
-                <td><c:out value="${song.artist}"></c:out></td>
-                <td><c:out value="${song.title}"></c:out></td>
-                <td>
-                    <a href="/songs/${song.id}">show</a>
-                    <a href="/songs/edit/${song.id}">edit</a>
-                    <form action="/songs/${song.id}" method="post">
-                        <input type="hidden" name="_method" value="delete">
-                        <input type="submit" value="Delete">
-                    </form>
-                    
-                </td>
-            </tr>
-        </c:forEach>
-    </tbody>
-   </table>
-
-   <a class="btn btn-warning" href="/songs/new">add song</a>
 
    <h2>Add a song to the list</h2>
 
@@ -58,8 +28,34 @@
         artist: <input type="text" name="artist">
 
         <input type="submit" value="add song">
-
    </form>
+<br>
+<br>
+   <h3>New and improved add form</h3>
+
+   <form:form action="/songs" method="POST" modelAttribute="song" >
+
+   <p>
+    <form:label path="artist">artist</form:label>
+    <form:input path="artist" />
+    <form:errors path="artist"/>
+   </p>
+
+   <p>
+    <form:label path="title">title</form:label>
+    <form:input path="title" />
+    <form:errors path="title"/>
+   </p>
+
+   <p>
+    <form:label path="rating">rating</form:label>
+    <form:input path="rating" />
+    <form:errors path="rating"/>
+   </p>
+
+   <input type="submit" value="add song">
+
+   </form:form>
 </body>
 </html>
 

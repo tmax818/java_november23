@@ -66,6 +66,11 @@
             <artifactId>bootstrap</artifactId>
             <version>5.2.3</version>
         </dependency>
+		        <!-- DEPENDENCY FOR USING VALIDATION ANNOTATIONS -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-validation</artifactId>
+        </dependency>
 	</dependencies>
 
 	<build>

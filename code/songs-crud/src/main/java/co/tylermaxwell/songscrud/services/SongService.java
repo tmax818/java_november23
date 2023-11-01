@@ -43,4 +43,22 @@ public class SongService {
         return songRepository.save(song);
     }
 
+    public void destroySong(Long id) {
+        songRepository.deleteById(id);
+    }
+
+    public void updateSongById(Song song, Long id) {
+        Optional<Song> optionalSong = songRepository.findById(id);
+
+        if(optionalSong.isPresent()){
+            System.out.println(optionalSong);
+            Song updateSong = optionalSong.get();
+            updateSong.setArtist(song.getArtist());
+            updateSong.setTitle(song.getTitle());
+            songRepository.save(updateSong);
+        } else {
+            this.createSong(song);
+        }
+    }
+
 }
