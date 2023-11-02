@@ -19,7 +19,7 @@
 </head>
 <body>
    <p>title: <c:out value="${song.title}"></c:out></p>
-   <p>artist: <c:out value="${song.artist}"></c:out></p>
+   <p>artist: <c:out value="${song.artist.name}"></c:out></p>
 </body>
 </html>
 

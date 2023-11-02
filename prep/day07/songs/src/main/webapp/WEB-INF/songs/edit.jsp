@@ -37,13 +37,17 @@
         <input type="hidden" name="_method" value="put">
     <p>
         <form:label path="title">title</form:label>
-        <form:input path="title"/>
+        <form:input path="title" value="${esong.title}"/>
         <form:errors path="title"/>
     </p>
     <p>
         <form:label path="artist">artist</form:label>
-        <form:input path="artist"/>
-        <form:errors path="artist"/>
+        <form:select path="artist">
+            <c:forEach var="artist" items="${artists}">
+                <form:option value="${artist}" path="song.artist">${artist.name}</form:option>
+            </c:forEach>
+        </form:select>
+        <form:errors path = "artist" />
     </p>
 
     <input type="submit" value="edit song">

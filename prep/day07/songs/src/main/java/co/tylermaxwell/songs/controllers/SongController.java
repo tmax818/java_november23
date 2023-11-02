@@ -13,7 +13,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 
+import co.tylermaxwell.songs.models.Artist;
 import co.tylermaxwell.songs.models.Song;
+import co.tylermaxwell.songs.services.ArtistService;
 import co.tylermaxwell.songs.services.SongService;
 import jakarta.validation.Valid;
 
@@ -25,14 +27,19 @@ public class SongController {
     @Autowired
     SongService songService;
 
+    @Autowired
+    ArtistService artistService;
+
     //! CREATE and READ ALL
     
     @GetMapping("/")
     public String index(@ModelAttribute Song song, Model model){
         List<Song> songs = songService.getAllSongs();
         model.addAttribute("songs", songs);
+        List<Artist> artists = artistService.getAllArtists();
+        model.addAttribute("artists", artists);
         System.out.println(songs);
-        return "index";
+        return "artists/index";
     }
     
     @PostMapping(value="/songs")
@@ -47,15 +54,15 @@ public class SongController {
         songService.addSong(song);
         return "redirect:/";
     }
-
+    
     //! READ ONE
-
+    
     @GetMapping("/songs/{id}")
     public String show(@PathVariable Long id, Model model){
         Song song = songService.getOneSong(id);
         System.out.println(song);
         model.addAttribute("song", song);
-        return "show";
+        return "songs/show";
     }
     
     
@@ -64,15 +71,22 @@ public class SongController {
     @GetMapping("/songs/edit/{id}")
     public String edit(@PathVariable Long id, Model model){
         Song song = songService.getOneSong(id);
+        List<Artist> artists = artistService.getAllArtists();
+        model.addAttribute("artists", artists);
         System.out.println(song);
         model.addAttribute("song", song);
-        return "edit";
+        return "songs/edit";
     }
-
+    
     @PutMapping("/songs/{id}")
     public String update(@Valid @ModelAttribute Song song, BindingResult result, Model model, @PathVariable Long id){
         if(result.hasErrors()){
-            return "edit";
+            Song esong = songService.getOneSong(id);
+            List<Artist> artists = artistService.getAllArtists();
+            model.addAttribute("esong", esong);
+            model.addAttribute("artists", artists);
+            // return String.format("redirect:/songs/edit/%d", id);
+            return "/songs/edit";
         }
         songService.updateSong(song);
         return "redirect:/";
