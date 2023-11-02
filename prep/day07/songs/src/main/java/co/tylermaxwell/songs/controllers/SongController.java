@@ -72,8 +72,6 @@ public class SongController {
     @PutMapping("/songs/{id}")
     public String update(@Valid @ModelAttribute Song song, BindingResult result, Model model, @PathVariable Long id){
         if(result.hasErrors()){
-            Song esong = songService.getOneSong(id);
-            model.addAttribute("song", esong);
             return "edit";
         }
         songService.updateSong(song);
