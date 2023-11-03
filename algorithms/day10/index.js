@@ -456,7 +456,14 @@ class ListNode {
      * @returns {SinglyLinkedList} The split list containing the nodes that are
      *    no longer in this list.
      */
-    splitOnVal(val) {}
+    splitOnVal(val) {
+      const newList = new SinglyLinkedList();
+
+      if(this.isEmpty()){
+        return newList;
+      }
+
+    }
   
     /**
      * Retrieves the data of the middle node of this list.

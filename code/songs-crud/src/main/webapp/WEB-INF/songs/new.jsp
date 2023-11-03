@@ -37,7 +37,12 @@
 
    <p>
     <form:label path="artist">artist</form:label>
-    <form:input path="artist" />
+    <form:select path="artist">
+      <c:forEach var="artist" items="${artists}">
+         <form:option value="${artist}" path="song.artist">${artist.name}</form:option>
+      </c:forEach>
+
+    </form:select>
     <form:errors path="artist"/>
    </p>
 

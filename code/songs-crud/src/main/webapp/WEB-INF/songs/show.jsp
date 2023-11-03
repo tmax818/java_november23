@@ -33,7 +33,7 @@
     
             <tr>
                 <td><c:out value="${song.id}"></c:out></td>
-                <td><c:out value="${song.artist}"></c:out></td>
+                <td><c:out value="${song.artist.name}"></c:out></td>
                 <td><c:out value="${song.title}"></c:out></td>
         
             </tr>

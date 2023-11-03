@@ -33,7 +33,7 @@
         <c:forEach var="song" items="${songs}">
             <tr>
                 <td><c:out value="${song.id}"></c:out></td>
-                <td><c:out value="${song.artist.songs}"></c:out></td>
+                <td><c:out value="${song.artist.name}"></c:out></td>
                 <td><c:out value="${song.title}"></c:out></td>
                 <td>
                     <a href="/songs/${song.id}">show</a>

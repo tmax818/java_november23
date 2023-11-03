@@ -1,9 +1,12 @@
 package co.tylermaxwell.songscrud.models;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
@@ -21,7 +24,9 @@ public class Song {
     private String title;
 
 
-    private String artist;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="artist_id")
+    private Artist artist;
 
     @Min(value = 1, message="It's better than that, Bro!!!!")
     @Max(value = 5, message="That's too high, Bro!!!")
@@ -50,13 +55,15 @@ public class Song {
         this.title = title;
     }
 
-    public String getArtist() {
+
+    public Artist getArtist() {
         return this.artist;
     }
 
-    public void setArtist(String artist) {
+    public void setArtist(Artist artist) {
         this.artist = artist;
     }
+
 
 
     public Integer getRating() {

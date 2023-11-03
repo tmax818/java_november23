@@ -1,5 +1,6 @@
 package co.tylermaxwell.logregprep.controllers;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import co.tylermaxwell.logregprep.models.LoginUser;
 import co.tylermaxwell.logregprep.models.User;
+import co.tylermaxwell.logregprep.services.UserService;
 import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 
@@ -16,8 +18,8 @@ import jakarta.validation.Valid;
 public class HomeController {
 
     // Add once service is implemented:
-    // @Autowired
-    // private UserService userServ;
+    @Autowired
+    private UserService userService;
     
     @GetMapping("/")
     public String index(Model model) {
@@ -32,10 +34,10 @@ public class HomeController {
     @PostMapping("/register")
     public String register(@Valid @ModelAttribute("newUser") User newUser, 
             BindingResult result, Model model, HttpSession session) {
-        
+        System.out.println(newUser);
         // TO-DO Later -- call a register method in the service 
         // to do some extra validations and create a new user!
-        
+        User user = userService.register(newUser, result);
         if(result.hasErrors()) {
             // Be sure to send in the empty LoginUser before 
             // re-rendering the page.

@@ -21,7 +21,9 @@ public class UserService {
     public User register(User newUser, BindingResult result) {
         // TO-DO: Additional validations!
          //TODO -  Reject if email is taken (present in database)
-
+        if(userRepository.findByEmail(newUser.getEmail()).isPresent()){
+            result.rejectValue("email", "Email", "What are you doing!!! You already regestered");
+        }
      
         
         //TODO -  Reject if password doesn't match confirmation
@@ -29,6 +31,9 @@ public class UserService {
     
         
         //TODO -  Return null if result has errors
+        if(result.hasErrors()){
+            return null;
+        }
 
     
         //TODO -  Hash passowrd 
@@ -38,8 +43,8 @@ public class UserService {
         
 
         //TODO - save user to database
-
         return null;
+    
     }
 
 

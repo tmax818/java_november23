@@ -13,7 +13,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 
+import co.tylermaxwell.songscrud.models.Artist;
 import co.tylermaxwell.songscrud.models.Song;
+import co.tylermaxwell.songscrud.services.ArtistService;
 import co.tylermaxwell.songscrud.services.SongService;
 import jakarta.validation.Valid;
 
@@ -24,11 +26,17 @@ public class SongController {
     @Autowired
     SongService songService;
 
+    @Autowired
+    ArtistService artistService;
+
     //! CREATE
 
     @GetMapping("/songs/new")
-    public String newSong(@ModelAttribute Song song){
-        return "new";
+    public String newSong(@ModelAttribute Song song, Model model){
+        List<Artist> artists = artistService.getAllArtists();
+        System.out.println(artists);
+        model.addAttribute("artists", artists);
+        return "songs/new";
     }
 
     @PostMapping("/songs")
@@ -36,7 +44,7 @@ public class SongController {
         if(result.hasErrors()){
             List<Song> songs = songService.getAllSongs();
             model.addAttribute("songs", songs);
-            return "new";
+            return "songs/new";
         } else {
             songService.addSong(song);
         }
@@ -50,7 +58,7 @@ public class SongController {
     public String index(Model model, Song song){
         List<Song> songs = songService.getAllSongs();
         model.addAttribute("songs", songs);
-        return "index";
+        return "songs/index";
     }
     
     
@@ -60,7 +68,7 @@ public class SongController {
     public String show(@PathVariable Long id, Model model){
         Song song = songService.getOneSong(id);
         model.addAttribute("song", song);
-        return "show";
+        return "songs/show";
     }
     
     
@@ -70,7 +78,7 @@ public class SongController {
     public String edit(@PathVariable Long id, Model model){
         Song song = songService.getOneSong(id);
         model.addAttribute("song", song);
-        return "edit";
+        return "songs/edit";
     }
 
     @PutMapping("/songs/{id}")
