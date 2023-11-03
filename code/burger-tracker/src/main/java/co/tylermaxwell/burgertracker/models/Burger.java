@@ -5,6 +5,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotEmpty;
 
 @Entity
 @Table(name = "burgers")
@@ -14,6 +15,7 @@ public class Burger {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     
+    @NotEmpty
     private String name;
     private String restaurant;
     private Integer rating;

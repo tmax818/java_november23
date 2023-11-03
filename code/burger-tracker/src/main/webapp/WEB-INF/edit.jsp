@@ -19,31 +19,10 @@
 </head>
 <body>
    ${burgers}
+    <h1>Edit burger</h1>
 
-   <table class="table">
-    <thead>
-        <tr>
-            <th>name</th>
-            <th>restaurant</th>
-            <th>rating</th>
-            <th>action</th>
-        </tr>
-    </thead>
-    <tbody>
-        <c:forEach var="burger" items="${burgers}">
-            <tr>
-                <td><c:out value="${burger.name}"></c:out></td>
-                <td><c:out value="${burger.restaurant}"></c:out></td>
-                <td><c:out value="${burger.rating}"></c:out></td>
-                <td>
-                    <a href="/burgers/edit/${burger.id}">edit</a>
-                </td>
-            </tr>
-        </c:forEach>
-    </tbody>
-   </table>
-
-   <form:form action="/burgers" method="POST" modelAttribute="burger">
+   <form:form action="/burgers/${burger.id}" method="POST" modelAttribute="burger">
+    <input type="hidden" name="_method" value="put">
     <p>
         <form:label path="name">name</form:label>
         <form:input path="name" />
@@ -64,4 +43,3 @@
    </form:form>
 </body>
 </html>
-
