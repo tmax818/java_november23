@@ -48,6 +48,8 @@ public class HomeController {
         // No errors! 
         // TO-DO Later: Store their ID from the DB in session, 
         // in other words, log them in.
+        session.setAttribute("userId", user.getId());
+        session.setAttribute("user", user);
     
         return "redirect:/home";
     }
@@ -57,9 +59,9 @@ public class HomeController {
             BindingResult result, Model model, HttpSession session) {
         
         // Add once service is implemented:
-        // User user = userServ.login(newLogin, result);
+        User user = userService.login(newLogin, result);
     
-        if(result.hasErrors()) {
+        if(result.hasErrors()|| user == null) {
             model.addAttribute("newUser", new User());
             return "index.jsp";
         }
@@ -67,8 +69,24 @@ public class HomeController {
         // No errors! 
         // TO-DO Later: Store their ID from the DB in session, 
         // in other words, log them in.
+        session.setAttribute("userId", user.getId());
+        session.setAttribute("user", user);
     
         return "redirect:/home";
+    }
+
+    @GetMapping("/home")
+    public String home(HttpSession session){
+        if(session.getAttribute("userId") == null){
+            return "redirect:/logout";
+        }
+        return "home.jsp";
+    }
+
+    @GetMapping("/logout")
+    public String logout(HttpSession session){
+        session.invalidate();
+        return "redirect:/";
     }
     
 }

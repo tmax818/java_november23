@@ -35,6 +35,16 @@ public class LoginUser {
         this.password = password;
     }
 
+
+    @Override
+    public String toString() {
+        return "{" +
+            " email='" + getEmail() + "'" +
+            ", password='" + getPassword() + "'" +
+            "}";
+    }
+
+
     
 }
 

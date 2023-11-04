@@ -27,6 +27,9 @@ public class UserService {
      
         
         //TODO -  Reject if password doesn't match confirmation
+        if(!newUser.getPassword().equals(newUser.getConfirm())){
+            result.rejectValue("password", "Password", "Dude, learn to type!!! Your passwords don't match!!");
+        }
         
     
         
@@ -37,13 +40,18 @@ public class UserService {
 
     
         //TODO -  Hash passowrd 
+        String hashed = BCrypt.hashpw(newUser.getPassword(), BCrypt.gensalt());
+        System.out.println(hashed);
     
         
         //TODO set password
+
+        newUser.setPassword(hashed);
         
 
         //TODO - save user to database
-        return null;
+
+        return userRepository.save(newUser);
     
     }
 
@@ -53,17 +61,26 @@ public class UserService {
 
     public User login(LoginUser newLoginObject, BindingResult result) {
         // TO-DO: Additional validations!
+        System.out.println(newLoginObject);
         
         //TODO Find user in the DB by email
-      
+        Optional<User> user = userRepository.findByEmail(newLoginObject.getEmail());
 
         //TODO Reject if NOT present
         //TODO Reject if BCrypt password match fails
+        if(!user.isPresent()){
+            result.rejectValue("email", "logEmail", "invalid credentials");
+        } else if (!BCrypt.checkpw(newLoginObject.getPassword(), user.get().getPassword())){
+            result.rejectValue("password", "logPassword", "invalid credentials");
+        }
  
     
         //TODO  Return null if result has errors
+        if(result.hasErrors()){
+            return null;
+        }
 
         //TODO Otherwise, return the user object
-        return null;
+        return user.get();
     }
 }
