@@ -8,7 +8,7 @@
 <!-- for rendering errors on PUT routes -->
 <%@ page isErrorPage="true" %>
 <!DOCTYPE html>
-<html>
+<html  data-bs-theme="dark">
 <head>
     <meta charset="UTF-8">
     <title>Tacos</title>
@@ -66,7 +66,7 @@
             <form:errors path = "title" />
         </p>
         <p>
-            <form:label path="artist">artist</form:label>
+            <form:label path="artists">artist</form:label>
             <form:select path="artists">
                 <c:forEach var="artist" items="${artists}">
                     <form:option value="${artist.id}" >${artist.name}</form:option>
@@ -83,6 +83,8 @@
 
         <input type="submit" value="add song">
     </form:form>
+
+    <a href="/artists">add artist</a>
 
    
 </body>

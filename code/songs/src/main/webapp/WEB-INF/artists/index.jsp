@@ -8,7 +8,7 @@
 <!-- for rendering errors on PUT routes -->
 <%@ page isErrorPage="true" %>
 <!DOCTYPE html>
-<html>
+<html data-bs-theme="dark">
 <head>
     <meta charset="UTF-8">
     <title>Tacos</title>
@@ -68,6 +68,8 @@
 
         <input type="submit" value="add artist">
     </form:form>
+
+    <a href="/songs">add song</a>
 
    
 </body>

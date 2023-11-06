@@ -43,7 +43,7 @@ public class SongService {
             System.out.println(optionalSong);
             Song uSong = optionalSong.get();
             System.out.println(uSong);
-            uSong.setArtist(song.getArtist());
+            uSong.setArtists(song.getArtists());
             uSong.setTitle(song.getTitle());
             songRepository.save(uSong);
         } else {

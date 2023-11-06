@@ -27,9 +27,9 @@ public class Song {
     @NotEmpty
     private String title;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="artist_id")
-    private Artist artist;
+    // @ManyToOne(fetch = FetchType.LAZY)
+    // @JoinColumn(name="artist_id")
+    // private Artist artist;
 
     @Min(value = 1, message="It's better than that, Bro!!!")
     @Max(5)
@@ -68,13 +68,6 @@ public class Song {
         this.title = title;
     }
 
-    public Artist getArtist() {
-        return this.artist;
-    }
-
-    public void setArtist(Artist artist) {
-        this.artist = artist;
-    }
 
     public Integer getRating() {
         return this.rating;
