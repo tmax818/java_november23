@@ -36,6 +36,7 @@ public class SongController {
     public String index(@ModelAttribute Song song, Model model){
         List<Song> songs = songService.getAllSongs();
         model.addAttribute("songs", songs);
+        
         List<Artist> artists = artistService.getAllArtists();
         model.addAttribute("artists", artists);
         System.out.println(songs);
@@ -49,10 +50,10 @@ public class SongController {
             List<Song> songs = songService.getAllSongs();
             model.addAttribute("songs", songs);
             model.addAttribute("result", result);
-            return "index.jsp";
+            return "songs/index.jsp";
         }
         songService.addSong(song);
-        return "redirect:/";
+        return "redirect:/songs";
     }
     
     //! READ ONE
@@ -71,9 +72,9 @@ public class SongController {
     @GetMapping("/songs/edit/{id}")
     public String edit(@PathVariable Long id, Model model){
         Song song = songService.getOneSong(id);
-        List<Artist> artists = artistService.getAllArtists();
+        List<Artist> artists = artistService.getAllNonArtistsOfSong(song);
         model.addAttribute("artists", artists);
-        System.out.println(song);
+        System.out.println(artists);
         model.addAttribute("song", song);
         return "songs/edit.jsp";
     }

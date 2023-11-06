@@ -26,7 +26,7 @@
             <tr>
                 <th>id</th>
                 <th>title</th>
-                <th>artist</th>
+                <th>artists</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -35,7 +35,11 @@
                 <tr>
                     <td><c:out value="${song.id}"></c:out></td>
                     <td><c:out value="${song.title}"></c:out></td>
-                    <td><c:out value="${song.artist}"></c:out></td>
+                    <td>
+                        <c:forEach var="artist" items="${song.artists}">
+                            <c:out value="${artist.name}"></c:out>
+                        </c:forEach>
+                    </td>
                     <td>
                         <a href="/songs/${song.id}">show</a>
                         <a href="/songs/edit/${song.id}">edit</a>
@@ -61,14 +65,14 @@
             <form:errors path = "title" />
         </p>
         <p>
-            <form:label path="artist">artist</form:label>
-            <form:select path="artist">
+            <form:label path="artists">artists</form:label>
+            <form:select path="artists">
                 <c:forEach var="artist" items="${artists}">
-                    <form:option value="${artist}" path="${song.artist}">${artist.name}</form:option>
+                    <form:option value="${artist.id}">${artist.name}</form:option>
 
                 </c:forEach>
             </form:select>
-            <form:errors path = "artist" />
+            <form:errors path = "artists" />
         </p>
         <p>
             <form:label path="rating">rating</form:label>

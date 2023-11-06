@@ -18,16 +18,8 @@
     <script type="text/javascript" src="/js/app.js"></script><!-- change to match your file/naming structure -->
 </head>
 <body>
-    <form action="/songs/${song.id}" method="POST">
-        <input type="hidden" name="_method" value="put">
-        title: <input type="text" name="title" value="${song.title}">
-        artist: <input type="text" name="artist" value="${song.artist}">
-        
-        <input type="submit" value="edit song">
-    </form>
-    
-    <br>
-    <br>
+
+
     
     <h3>edit song</h3>
 
@@ -39,13 +31,21 @@
         <form:errors path="title"/>
     </p>
     <p>
-        <form:label path="artist">artist</form:label>
-        <form:select path="artist">
+        <form:label path="artists">artists</form:label>
+        <form:select path="artists">
+            <c:forEach var="artist" items="${song.artists}">
+                <form:option value="${artist.id}" selected="true">${artist.name}</form:option>
+            </c:forEach>
             <c:forEach var="artist" items="${artists}">
-                <form:option value="${artist}" path="song.artist">${artist.name}</form:option>
+                <form:option value="${artist.id}">${artist.name}</form:option>
             </c:forEach>
         </form:select>
-        <form:errors path = "artist" />
+        <form:errors path = "artists" />
+    </p>
+    <p>
+        <form:label path="rating">rating</form:label>
+        <form:input path = "rating" />
+        <form:errors path = "rating" />
     </p>
 
     <input type="submit" value="edit song">
