@@ -71,10 +71,9 @@ public class SongController {
     @GetMapping("/songs/edit/{id}")
     public String edit(@PathVariable Long id, Model model){
         Song song = songService.getOneSong(id);
-        List<Artist> artists = artistService.getAllArtists();
-        model.addAttribute("artists", artists);
-        System.out.println(song);
+        List<Artist> artists = artistService.getAllNonArtistsForSong(song);
         model.addAttribute("song", song);
+        model.addAttribute("artists", artists);
         return "songs/edit.jsp";
     }
     

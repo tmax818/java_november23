@@ -60,6 +60,17 @@ public class Artist {
         this.songs = songs;
     }
 
+
+    @Override
+    public String toString() {
+        return "{" +
+            " id='" + getId() + "'" +
+            ", name='" + getName() + "'" +
+            ", songs='" + getSongs() + "'" +
+            "}";
+    }
+
+
     
 
 
