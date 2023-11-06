@@ -49,10 +49,10 @@ public class SongController {
             List<Song> songs = songService.getAllSongs();
             model.addAttribute("songs", songs);
             model.addAttribute("result", result);
-            return "index.jsp";
+            return "songs/index.jsp";
         }
         songService.addSong(song);
-        return "redirect:/";
+        return "redirect:/songs";
     }
     
     //! READ ONE
@@ -98,7 +98,7 @@ public class SongController {
     @DeleteMapping("/songs/{id}")
     public String destroy(@PathVariable Long id){
         songService.destroySong(id);
-        return "redirect:/";
+        return "redirect:/songs";
     }
     
     

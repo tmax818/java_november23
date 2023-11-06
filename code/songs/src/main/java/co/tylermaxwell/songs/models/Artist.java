@@ -7,6 +7,9 @@ import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
@@ -19,8 +22,16 @@ public class Artist {
     private Long id;
 
     private String name;
-    @OneToMany(mappedBy="artist", fetch = FetchType.LAZY)
-    List<Song> songs;
+    // @OneToMany(mappedBy="artist", fetch = FetchType.LAZY)
+    // List<Song> songs;
+
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(
+        name = "songs_artists",
+        joinColumns = @JoinColumn(name = "artist_id"),
+        inverseJoinColumns = @JoinColumn(name = "song_id")
+    )
+    private List<Song> songs;
 
 
     public Artist() {
@@ -46,6 +57,7 @@ public class Artist {
         this.name = name;
     }
 
+
     public List<Song> getSongs() {
         return this.songs;
     }
@@ -53,6 +65,7 @@ public class Artist {
     public void setSongs(List<Song> songs) {
         this.songs = songs;
     }
+
     
 
 
