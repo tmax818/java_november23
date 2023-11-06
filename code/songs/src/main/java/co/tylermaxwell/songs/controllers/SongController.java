@@ -85,14 +85,12 @@ public class SongController {
             List<Artist> artists = artistService.getAllArtists();
             model.addAttribute("esong", esong);
             model.addAttribute("artists", artists);
-            // return String.format("redirect:/songs/edit/%d", id);
             return "/songs/edit.jsp";
         }
         songService.updateSong(song);
         return "redirect:/songs";
     }
     
-
     //! DELETE
 
     @DeleteMapping("/songs/{id}")

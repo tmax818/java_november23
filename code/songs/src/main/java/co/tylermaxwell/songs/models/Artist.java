@@ -21,8 +21,7 @@ public class Artist {
     private Long id;
 
     private String name;
-    // @OneToMany(mappedBy="artist", fetch = FetchType.LAZY)
-    // List<Song> songs;
+
 
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(
@@ -36,7 +35,6 @@ public class Artist {
     public Artist() {
     }
 
-
     public Long getId() {
         return this.id;
     }
@@ -44,9 +42,6 @@ public class Artist {
     public void setId(Long id) {
         this.id = id;
     }
-
-
-
 
     public String getName() {
         return this.name;
