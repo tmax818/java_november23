@@ -35,7 +35,11 @@
             <tbody>
                 <c:forEach var="bundle" items="${bundles}">
                     <tr>
-                        <td><c:out value="${bundle.name}"></c:out></td>
+                        <td>
+                            <a href="/bundles/${bundle.id}">
+                                <c:out value="${bundle.name}"></c:out>
+                            </a>
+                        </td>
                         <td><c:out value="${bundle.gender.toString().toLowerCase()}"></c:out></td>
                         <td>Origin: <c:out value="${bundle.origin}"></c:out></td>
                     </tr>
