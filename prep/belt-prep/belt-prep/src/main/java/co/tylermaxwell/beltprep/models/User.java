@@ -7,6 +7,9 @@ import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
@@ -41,6 +44,14 @@ public class User {
 
     @OneToMany(mappedBy="user", fetch = FetchType.LAZY)
     private List<Bundle> bundles;
+
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(
+        name = "votes",
+        joinColumns = @JoinColumn(name = "user_id"),
+        inverseJoinColumns = @JoinColumn(name = "bundle_id")
+    )
+    private List<Bundle> votes;
   
     public User() {}
     
@@ -94,6 +105,15 @@ public class User {
 
     public void setBundles(List<Bundle> bundles) {
         this.bundles = bundles;
+    }
+
+
+    public List<Bundle> getVotes() {
+        return this.votes;
+    }
+
+    public void setVotes(List<Bundle> votes) {
+        this.votes = votes;
     }
 
 

@@ -21,29 +21,45 @@
     ${artists}
     <br>
     
-    <h3>edit song</h3>
+    <h3>edit bundle</h3>
 
-    <form:form action="/songs/${song.id}" method="POST" modelAttribute="song">
+    <form:form action="/bundles/${bundle.id}" method="POST" modelAttribute="bundle">
+        <input type="hidden" name="user" value="${userId}">
         <input type="hidden" name="_method" value="put">
-    <p>
-        <form:label path="title">title</form:label>
-        <form:input path="title" value="${esong.title}"/>
-        <form:errors path="title"/>
-    </p>
-    <p>
-        <form:label path="artists">artist</form:label>
-        <form:select path="artists">
-            <c:forEach var="artist" items="${song.artists}">
-                <form:option value="${artist.id}" selected="true" >${artist.name}</form:option>
-            </c:forEach>
-            <c:forEach var="artist" items="${artists}">
-                <form:option value="${artist.id}">${artist.name}</form:option>
-            </c:forEach>
-        </form:select>
-        <form:errors path = "artists" />
-    </p>
+        <p>
+            <form:label path="name">name</form:label>
+            <form:input path = "name" />
+            <form:errors path = "name" />
+        </p>
+        <p>
+            <form:label path="gender">Gender</form:label>
+            <form:select path="gender">
+                <form:option value="MALE" path="gender">male</form:option>
+                <form:option value="FEMALE" path="gender">female</form:option>
+                <form:option value="NEUTRAL" path="gender">neutral</form:option>
+            </form:select>
+            <form:errors path = "gender" />
+        </p>
+        <p>
+            <form:label path="meaning">meaning</form:label>
+            <form:input path = "meaning" />
+            <form:errors path = "meaning" />
+        </p>
+        <p>
+            <form:label path="origin">origin</form:label>
+            <form:input path = "origin" />
+            <form:errors path = "origin" />
+        </p>
+        </p>
+        <p>
+            <form:label path="year">year</form:label>
+            <form:input path = "year" />
+            <form:errors path = "year" />
+        </p>
 
-    <input type="submit" value="edit song">
+
+
+    <input type="submit" value="edit bundle">
 
     </form:form>
 </body>

@@ -24,22 +24,29 @@
         <thead>
             <tr>
                 <th>id</th>
-                <th>title</th>
-                <th>artist</th>
+                <th>vote</th>
+                <th>name</th>
+                <th>origin</th>
+                <th>gender</th>
                 <th>actions</th>
+                <th>votes</th>
             </tr>
         </thead>
         <tbody>
             <c:forEach var="bundle" items="${bundles}">
                 <tr>
                     <td><c:out value="${bundle.id}"></c:out></td>
-                    <td><c:out value="${bundle.name}"></c:out></td>
-                    <!-- <td><c:out value="${bundle.artists}"></c:out></td> -->
+                    
                     <td>
-                        <c:forEach var="artist" items="${bundle.artists}">
-                            <c:out value="${artist.name}"></c:out>
-                        </c:forEach>
-                    </td>
+                            <c:out value="${user.votes}"></c:out>
+                            <c:out value="${bundle}"></c:out>
+                            <a href="/bundles/vote/${bundle.id}">vote</a>
+                        
+                        </td>
+                    <td><c:out value="${bundle.name}"></c:out></td>
+                    <td><c:out value="${bundle.origin}"></c:out></td>
+                    <td><c:out value="${bundle.gender.toString().toLowerCase()}"></c:out></td>
+                   
                         <td>
                         <a href="/bundles/${bundle.id}">show</a>
                         <a href="/bundles/edit/${bundle.id}">edit</a>
@@ -49,6 +56,7 @@
                         </form>
                         
                     </td>
+                    <td><c:out value="${bundle.votes.size()}"></c:out></td>
                 </tr>
             </c:forEach>
         </tbody>
@@ -68,8 +76,9 @@
         <p>
             <form:label path="gender">Gender</form:label>
             <form:select path="gender">
-                <form:option value="${bundle.gender.MALE}" path="gender">male</form:option>
+                <form:option value="MALE" path="gender">male</form:option>
                 <form:option value="FEMALE" path="gender">female</form:option>
+                <form:option value="NEUTRAL" path="gender">neutral</form:option>
             </form:select>
             <form:errors path = "gender" />
         </p>
@@ -77,6 +86,17 @@
             <form:label path="meaning">meaning</form:label>
             <form:input path = "meaning" />
             <form:errors path = "meaning" />
+        </p>
+        <p>
+            <form:label path="origin">origin</form:label>
+            <form:input path = "origin" />
+            <form:errors path = "origin" />
+        </p>
+        </p>
+        <p>
+            <form:label path="year">year</form:label>
+            <form:input path = "year" />
+            <form:errors path = "year" />
         </p>
 
         <input type="submit" value="add bundle">

@@ -2,6 +2,8 @@ package co.tylermaxwell.beltprep.services;
 
 import java.util.Optional;
 
+import javax.swing.text.html.Option;
+
 import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -82,5 +84,14 @@ public class UserService {
 
         //TODO Otherwise, return the user object
         return user.get();
+    }
+
+
+
+
+
+    public User getOneUserById(Long id) {
+        Optional<User> user = userRepository.findById(id);
+        return user.orElse(null);
     }
 }

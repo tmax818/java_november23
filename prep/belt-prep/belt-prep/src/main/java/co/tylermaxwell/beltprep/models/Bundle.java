@@ -1,5 +1,7 @@
 package co.tylermaxwell.beltprep.models;
 
+import java.util.List;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -8,6 +10,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
@@ -42,6 +46,15 @@ public class Bundle {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     private User user;
+
+    
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(
+        name = "votes",
+        joinColumns = @JoinColumn(name = "bundle_id"),
+        inverseJoinColumns = @JoinColumn(name = "user_id")
+    )
+    private List<User> votes;
 
 
     public Bundle() {
@@ -107,6 +120,16 @@ public class Bundle {
     }
 
 
+    public List<User> getVotes() {
+        return this.votes;
+    }
+
+    public void setVotes(List<User> votes) {
+        this.votes = votes;
+    }
+
+
+
     @Override
     public String toString() {
         return "{" +
@@ -115,9 +138,11 @@ public class Bundle {
             ", origin='" + getOrigin() + "'" +
             ", meaning='" + getMeaning() + "'" +
             ", year='" + getYear() + "'" +
-            ", user='" + getUser() + "'" +
+            ", gender='" + getGender() + "'" +
+            
             "}";
     }
+
 
 
 
