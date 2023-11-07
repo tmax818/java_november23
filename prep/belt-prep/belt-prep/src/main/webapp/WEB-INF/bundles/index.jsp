@@ -19,7 +19,7 @@
 </head>
 <body>
     <h1>Welcome, ${user.userName}</h1>
-
+        ${session.voted}
     <table class="table">
         <thead>
             <tr>
@@ -38,10 +38,9 @@
                     <td><c:out value="${bundle.id}"></c:out></td>
                     
                     <td>
-                            <c:out value="${user.votes}"></c:out>
-                            <c:out value="${bundle}"></c:out>
+      
                             <a href="/bundles/vote/${bundle.id}">vote</a>
-                        
+
                         </td>
                     <td><c:out value="${bundle.name}"></c:out></td>
                     <td><c:out value="${bundle.origin}"></c:out></td>

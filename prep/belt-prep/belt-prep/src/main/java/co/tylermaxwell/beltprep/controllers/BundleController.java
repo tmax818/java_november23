@@ -38,9 +38,12 @@ public class BundleController {
     }
 
     @PostMapping("/bundles")
-    public String createBundle(@ModelAttribute Bundle bundle){
+    public String createBundle(@Valid @ModelAttribute Bundle bundle, BindingResult result){
+        bundleService.addBundle(bundle, result);
+        if(result.hasErrors()){
+            return "bundles/index.jsp";
+        }
         System.out.println(bundle);
-        bundleService.addBundle(bundle);
         return "redirect:/bundles";
     }
 
@@ -89,7 +92,8 @@ public class BundleController {
     public String vote(@PathVariable Long id, HttpSession session){
         User user = userService.getOneUserById((Long)session.getAttribute("userId"));
         Bundle bundle = bundleService.getOneBundle(id);
-        bundleService.addUserVote(bundle, user);
+        boolean voted = bundleService.addUserVote(bundle, user);
+        session.setAttribute("voted", voted);
         return "redirect:/bundles";
     }
     

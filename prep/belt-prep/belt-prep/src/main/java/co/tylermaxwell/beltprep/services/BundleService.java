@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.validation.BindingResult;
 
 import co.tylermaxwell.beltprep.models.Bundle;
 import co.tylermaxwell.beltprep.models.User;
@@ -24,8 +25,14 @@ public class BundleService {
     @Autowired
     BundleRepository bundleRepository;
 
-    public void addBundle(Bundle bundle) {
-        bundleRepository.save(bundle);
+    public Bundle addBundle(Bundle bundle, BindingResult result) {
+        Optional<Bundle> checkbundle = bundleRepository.findByName(bundle.getName());
+        if(!checkbundle.isPresent()){
+           return bundleRepository.save(bundle);
+        } else {
+            result.rejectValue("name", "Name", "already heard that one!!");
+            return null;
+        }
     }
 
     public List<Bundle> getAllBundles() {
@@ -45,14 +52,22 @@ public class BundleService {
         bundleRepository.deleteById(id);
     }
 
-    public void addVoteToBundle(Bundle bundle) {
-        List<Bundle> bundles = bundleRepository.findByUser(bundle.getUser());
     
+    
+
+    public boolean addUserVote(Bundle bundle, User user) {
+        if(!bundle.getVotes().contains(user)){
+            bundle.getVotes().add(user);
+            bundleRepository.save(bundle);    
+            return true;
+        } else {
+            return false;
+        }
+        
     }
 
-    public void addUserVote(Bundle bundle, User user) {
-        bundle.getVotes().add(user);
-        bundleRepository.save(bundle);    
+    public Bundle getBundleVotes(User user) {
+        return bundleRepository.findByVotesContains(user);
     }
 
     

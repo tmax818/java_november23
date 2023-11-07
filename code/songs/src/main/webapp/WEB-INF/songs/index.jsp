@@ -84,9 +84,8 @@
         <input type="submit" value="add song">
     </form:form>
 
-    <a href="/artists">add artist</a>
+    <a href="/bundles">add name</a>
 
-   
 </body>
 </html>
 
