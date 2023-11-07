@@ -1,6 +1,8 @@
 package co.tylermaxwell.beltprep.models;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -32,7 +34,10 @@ public class Bundle {
     @NotNull
     private Integer year;
 
-    private enum Gender {MALE, FEMALE, NEUTRAL }
+    public enum Gender {MALE, FEMALE, NEUTRAL }
+
+    @Enumerated(EnumType.STRING)
+    private Gender gender;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
@@ -92,6 +97,16 @@ public class Bundle {
     }
 
 
+    public Gender getGender() {
+        return this.gender;
+    }
+
+    public void setGender(Gender gender) {
+        this.gender = gender;
+    }
+
+
+
     @Override
     public String toString() {
         return "{" +
@@ -100,10 +115,11 @@ public class Bundle {
             ", origin='" + getOrigin() + "'" +
             ", meaning='" + getMeaning() + "'" +
             ", year='" + getYear() + "'" +
-            ", user='" + getUser() + "'" +
+            ", gender='" + getGender() + "'" +
             "}";
     }
 
+  
 
 
 

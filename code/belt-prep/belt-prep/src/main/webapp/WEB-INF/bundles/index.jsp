@@ -21,8 +21,31 @@
 
 <body>
     <div class="container">
-
+            ${bundles}
         <h1>Welcome, ${user.userName}</h1>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>name</th>
+                    <th>gender</th>
+                    <th>origin</th>
+                </tr>
+            </thead>
+            <tbody>
+                <c:forEach var="bundle" items="${bundles}">
+                    <tr>
+                        <td><c:out value="${bundle.name}"></c:out></td>
+                        <td><c:out value="${bundle.gender.toString().toLowerCase()}"></c:out></td>
+                        <td>Origin: <c:out value="${bundle.origin}"></c:out></td>
+                    </tr>
+                </c:forEach>
+            </tbody>
+        </table>
+
+
+
+        <a class="btn btn-success" href="/bundles/new">new name</a>
 
 
     </div>
