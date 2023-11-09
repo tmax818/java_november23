@@ -18,7 +18,18 @@
     <script type="text/javascript" src="/js/app.js"></script><!-- change to match your file/naming structure -->
 </head>
 <body>
+    ${bundle}
+    <h1><c:out value="${bundle.name}"></c:out></h1>
+    <h2>Added by: <c:out value="${bundle.user.userName}"></c:out></h2>
 
+    <h3>Gender: <c:out value="${bundle.gender}"></c:out></h3>
+
+    <p>origin: <c:out value="${bundle.origin}"></c:out></p>
+    <p>origin: <c:out value="${bundle.meaning}"></c:out></p>
+
+    <c:if test="${userId == bundle.user.id }">
+        <a class="btn btn-success" href="/bundles/edit/${bundle.id}">< edit</a>
+    </c:if>
 </body>
 </html>
 
