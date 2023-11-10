@@ -1,5 +1,8 @@
 {
     "cSpell.words": [
+        "Inorder",
+        "Postorder",
+        "Preorder",
         "WORA"
     ],
     "java.configuration.updateBuildConfiguration": "interactive",
