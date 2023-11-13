@@ -372,7 +372,7 @@ class BSTNode {
         queue.push(current);
       }
   
-      // other tree structures have more than a left and a right, so children could be looped over and enqueued
+      // other tree structures have more than a left and a right, so children could be i  over and enqueued
       while (queue.length > 0) {
         const dequeuedNode = queue.shift();
         vals.push(dequeuedNode.data);
