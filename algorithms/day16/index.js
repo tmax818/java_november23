@@ -23,8 +23,32 @@ class MinHeap {
      * - Space: O(1) constant.
      * @returns {?number} Null if empty.
      */
-    top() {}
-  
+    top() {
+      if(this.heap.length > 1){
+        return this.heap[1]
+      } else {
+        return null
+      }
+    }
+
+    idxLeftChild(i){
+      return i * 2;
+    }
+
+    idxRightChild(i){
+      return i * 2 + 1
+    }
+  // [1,2,3,4]
+    swap(i,j){
+      const temp = this.heap[i];
+      this.heap[i] = this.heap[j];
+      this.heap[j] = temp;
+    }
+
+    fancySwap(i,j){
+      [this.heap[i], this.heap[j]] = [this.heap[j], this.heap[i]]
+    }
+
     /**
      * Inserts a new number into the heap and maintains the heaps order.
      * 1. Push new num to back then.
@@ -34,7 +58,10 @@ class MinHeap {
      * - Space: O(1) constant.
      * @param {number} num The num to add.
      */
-    insert(num) {}
+    insert(num) {
+      //push num
+      // 
+    }
   
     /**
      * Logs the tree horizontally with the root on the left and the index in
