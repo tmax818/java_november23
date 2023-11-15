@@ -60,7 +60,22 @@ class MinHeap {
      */
     insert(num) {
       //push num
+      this.heap.push(num);
+      this.shiftUp();
       // 
+    }
+
+    shiftUp(){
+      let idx = this.heap.length - 1;
+      const element = this.heap[idx];
+
+      while(idx > 0){
+        let parentIdx = Math.floor((idx)/2);
+        let parent = this.heap[parentIdx];
+        if(element > parent) break;
+          this.fancySwap(idx, parentIdx)
+          idx = parentIdx
+        }
     }
   
     /**
@@ -83,3 +98,11 @@ class MinHeap {
       this.printHorizontalTree(parentIdx * 2, spaceCnt);
     }
   }
+
+  const myheap = new MinHeap();
+  myheap.insert(99);
+  myheap.insert(44);
+  myheap.insert(33);
+  myheap.insert(4);
+
+  console.log(myheap.heap)
