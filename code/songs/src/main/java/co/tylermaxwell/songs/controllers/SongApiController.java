@@ -32,7 +32,9 @@ public class SongApiController {
     //! READ ALL 
     @GetMapping("/songs")
     public List<Song> allsongs(){
-        return songService.getAllSongs();
+        List<Song> songs = songService.getAllSongs();
+        System.out.println(songs);
+        return songs;
     }
 
     //! READ ONE

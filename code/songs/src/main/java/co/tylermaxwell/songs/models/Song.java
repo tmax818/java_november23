@@ -2,6 +2,9 @@ package co.tylermaxwell.songs.models;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -76,6 +79,7 @@ public class Song {
     }
 
 
+    @JsonIgnore
     public List<Artist> getArtists() {
         return this.artists;
     }
