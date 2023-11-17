@@ -18,7 +18,7 @@
 ## brainstorming
 ## food ordering system
 ## database issues
-## present: yes from a car
+## present: no from a car
 
 # carlos
 ## movie theatre booking, kotlin
